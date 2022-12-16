@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Quiz</title>
+</head>
+<body>
+    
+    <h1>Cuestionario xApi</h1>
+<div id="user-form">
+    <form style="width: 75vh;" class="mx-auto" > 
+        <h3>Ingresa tus datos personales</h3>
+        <div class="mb-3 d-flex flex-row" >
+          <input type="text" class="form-control w-50" id="email" placeholder="Correo electrónico">
+          <input type="text" class="form-control w-50 ms-3" id="userName" placeholder="Nombre completo" >
+          <button class="ms-3 btn btn-primary" id="register-user-btn"> Aceptar</button>
+        </div>
+    </form>
+</div>
+
+<!--  -->
+
+    <div id="quiz-content" hidden>
+
+asdasdasdsadasdasdasdasdasdsadasdas
+
+        </div>
+    
+
+<!--  -->
+<script src="../scripts/tincan-min.js"></script>
+<script src="../scripts/xApiInteractions.js"></script>
+<script src="../scripts/main.js"></script>
+<script>
+    const registrarUsuario=(e)=>{
+        e.preventDefault()
+        setUserName(document.getElementById("userName").value);
+        setEmail(document.getElementById("email").value);
+        document.getElementById("user-form").hidden=true; 
+        document.getElementById("quiz-content").hidden=false;
+    }
+    const btn=document.getElementById("register-user-btn")
+    btn.addEventListener("click",registrarUsuario,false)
+</script>
+
+
+
+<script>                     
+        let totalScore=0;
+        let totalAttemps=0;
+        let incorrectResponses=0;
+        const minScore=0;
+        const maxScore=100;
+        const minimalNoteToAprove=51;
+        const questionsResponseExpected=[{ 
+            number:2,
+            correctAnswer:["respuesta correcta","respuesta correcta"],
+            points:33,
+            failedMessage:"fail question 1"
+            },
+            { 
+            number:3,
+            correctAnswer:["short"],
+            points:32,
+            failedMessage:"fallo 2"
+            },
+            { 
+            number:4,
+            correctAnswer:["true"],
+            points:33,
+            failedMessage:"fallo mensaje 3"
+            }
+        ];
+</script>
+
+<script>
+let cuestionActivitiesArray=[
+
+{
+    definition: {
+        description: {"es": "esta es una pregunta?"},
+        type: "http://adlnet.gov/expapi/activities/quizInteraction",
+        interactionType: "choice",
+        correctResponsesPattern: ["golf[,]tetris"],
+        choices: [
+            {
+            id: "golf", 
+            description: {"en-US": "golf"}
+            },
+            {
+            id: "facebook", 
+            description: {"en-US": "facebook"}
+            },
+            {
+            id: "tetris", 
+            description: {"en-US": "tetris"}
+            },
+            {
+            id: "scrabble", 
+            description: {"en-US": "scrabble"}
+            }
+        ]
+    }
+}
+,
+
+{
+    definition: {
+        description: {"es": "esta es otra pregunta "},
+        type: "http://adlnet.gov/expapi/activities/quizInteraction",
+        interactionType: "fill-in",
+        correctResponsesPattern: ["Bob's your uncle"]
+        }
+}
+,
+{
+    definition: {
+        description: {es: "esta es otra otra pregunta?"},
+        type: "http://adlnet.gov/expapi/activities/quizInteraction",
+        interactionType: "true-false",
+        correctResponsesPattern: ["true"]
+        }
+}
+
+]
+
+</script>
+
+</body>
+</html>

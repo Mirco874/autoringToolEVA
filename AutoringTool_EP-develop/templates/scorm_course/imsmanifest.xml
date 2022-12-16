@@ -1,0 +1,29 @@
+<manifest 
+    identifier="com.scorm.eva.2_2022.group_5" 
+    version="1">
+<metadata> 
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 3rd Edition</schemaversion>
+</metadata>
+<organizations>
+    <organization identifier="eva_2022">
+        <title>EVA</title>
+        <item identifier="item_1" identifierref="resource_1">
+            <title>EVA</title>
+            <imsss:sequencing>
+            <imsss:deliveryControls completionSetByContent="true" objectiveSetByContent="true"/>
+            </imsss:sequencing>
+        </item>
+        <imsss:sequencing>
+            <imsss:controlMode choice="true" flow="true"/>
+        </imsss:sequencing>
+    </organization>
+</organizations>
+
+<resources>
+    <resource identifier="resource_1" type="webcontent" adlcp:scormType="sco" href="shared/main.html">
+        <file href="shared/main.html"/>
+    </resource>
+</resources>
+
+</manifest>
